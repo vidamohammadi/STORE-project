@@ -1,16 +1,16 @@
 import React , { Component } from 'react';
-import Wrapper from './hoc/Wrapper'
 import Layout from './components/Layout/Layout'
 import Shopping from './containers/Shopping/Shopping';
+import { BrowserRouter as Router } from 'react-router-dom'
 
 class App extends Component{
   render(){
     return(
-      <Wrapper>
+      <Router>
         <Layout>
           <Shopping />
         </Layout>
-      </Wrapper>
+      </Router>
     )
   }
 }
