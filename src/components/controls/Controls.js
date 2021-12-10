@@ -22,7 +22,7 @@ const Controls = (props) => {
                     remove={() => props.productRemove(item.type)}
                 />
             })}
-            <Button btnType="order-btn">Order</Button>
+            <Button btnType="order-btn" click={props.order}>Order</Button>
         </div>
     )
 }
