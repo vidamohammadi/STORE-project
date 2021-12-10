@@ -7,8 +7,7 @@
     border: none;
     background: transparent;
     outline: none;
-
-}
+    }
 
 .control-btn{
     background: #9c27b0;
@@ -23,4 +22,14 @@
     color: #8e24aa;
     padding: 16px 32px;
     margin-top: 32px;
+}
+
+.success{
+    background: #388e3c;
+    width: 52px;
+}
+
+.danger{
+    background: #de2f2f;
+    width: 52px;
 }

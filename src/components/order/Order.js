@@ -1,10 +1,28 @@
 import React from 'react'
+import Wrapper from '../../hoc/Wrapper'
+import Button from '../UI/Button/Button'
 
-const Order = () => {
+const Order = (props) => {
+
+    const summery = Object.keys(props.products).map((item) => {
+        return(
+            <li key={item}>
+                {item}: {props.products[item]}
+            </li>
+        )
+    })
+
     return (
-        <div>
+        <Wrapper>
             <h1>order list</h1>
-        </div>
+            <ul>
+                {summery}
+            </ul>
+            <p>Total Price : {props.price}</p>
+            <p>Continue?!</p>
+            <Button btnType="success" click={props.continue}>Yes</Button>
+            <Button btnType="danger" click={props.cancel}>No</Button>
+        </Wrapper>
     )
 }
 

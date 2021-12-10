@@ -20,13 +20,14 @@ class Shopping extends Component {
             product4: 0
         },
         totalPrice: 0,
-        purchased: false
+        purchased: false,
+        continue: false
     }
 
-    addProductHandler = (type) =>{
+    addProductHandler = (type) => {
         const prevCount = this.state.products[type]
         const updatedCount = prevCount + 1
-        const updatedProducts ={
+        const updatedProducts = {
             ...this.state.products
         }
         updatedProducts[type] = updatedCount
@@ -34,11 +35,11 @@ class Shopping extends Component {
         const prevPrice = this.state.totalPrice
         const newPrice = prevPrice + priceAdd
         this.setState({
-            products: updatedProducts , totalPrice: newPrice
+            products: updatedProducts, totalPrice: newPrice
         })
     }
 
-    
+
 
     removeProductHandler = (type) => {
         const prevCount = this.state.products[type]
@@ -51,36 +52,54 @@ class Shopping extends Component {
         const prevPrice = this.state.totalPrice
         const newPrice = prevPrice - priceRemove
         this.setState({
-            products: updatedProducts , totalPrice: newPrice
+            products: updatedProducts, totalPrice: newPrice
         })
     }
 
-    purchasedHandler = () =>{
+    purchasedHandler = () => {
         this.setState({
             purchased: true
         })
     }
 
-    modalCloseHandler = () =>{
+    modalCloseHandler = () => {
         this.setState({
             purchased: false
         })
     }
 
+    purchasedContinueHandler = () =>{
+        this.setState({
+            continue:true
+        })
+    }
+
     render() {
+        let order = <Order
+            products={this.state.products}
+            price={this.state.totalPrice}
+            cancel={this.modalCloseHandler}
+            continue={this.purchasedContinueHandler}
+        />
+
+        if(this.state.continue){
+            order = <h2 style={{color:"darkgreen"}}>order success!</h2>
+        }
+
         return (
             <Wrapper>
                 <Modal
                     show={this.state.purchased}
                     modalClose={this.modalCloseHandler}
                 >
-                    <Order />
+                    {order}
                 </Modal>
-                <Controls 
+                <Controls
                     productAdd={this.addProductHandler}
                     productRemove={this.removeProductHandler}
                     order={this.purchasedHandler}
-                    />
+                    totalPrice={this.state.totalPrice}
+                />
             </Wrapper>
         )
     }

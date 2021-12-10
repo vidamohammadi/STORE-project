@@ -10,3 +10,7 @@
     padding: 32px 0;
     box-shadow: 0 0 25px 5px rgba(0,0,0,0.7);
 }
+
+.controls h1 {
+    color: #6a1b9a;
+}
