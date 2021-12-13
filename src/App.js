@@ -1,15 +1,19 @@
-import React , { Component } from 'react';
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import Shopping from './containers/Shopping/Shopping';
-import { BrowserRouter as Router } from 'react-router-dom'
-import Modal from './components/UI/modal/Modal';
+import Checkout from './containers/Checkout/Checkout';
 
-class App extends Component{
-  render(){
-    return(
+class App extends Component {
+  render() {
+    return (
       <Router>
         <Layout>
-          <Shopping />
+          <Switch>
+            <Route path="/checkout" component={Checkout} />
+            <Route path="/account" render={() => <h1>this is account!</h1>} />
+            <Route path="/" exact component={Shopping} />
+          </Switch>
         </Layout>
       </Router>
     )

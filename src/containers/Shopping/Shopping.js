@@ -3,7 +3,8 @@ import Controls from '../../components/controls/Controls'
 import Wrapper from '../../hoc/Wrapper'
 import Modal from '../../components/UI/modal/Modal'
 import Order from '../../components/order/Order'
-
+import { Route } from 'react-router'
+import Account from '../Account/Account'
 const prices = {
     product1: 50,
     product2: 80,
@@ -69,6 +70,7 @@ class Shopping extends Component {
     }
 
     purchasedContinueHandler = () =>{
+        this.props.history.push('/checkout')
         this.setState({
             continue:true
         })
@@ -101,6 +103,7 @@ class Shopping extends Component {
                     totalPrice={this.state.totalPrice}
                 />
             </Wrapper>
+            
         )
     }
 }

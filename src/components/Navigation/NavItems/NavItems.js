@@ -4,8 +4,8 @@ import './NavItems.css'
 const NavItems = () => {
     return (
         <ul className="nav-items">
-            <NavItem link="shopping">Shopping</NavItem>
-            <NavItem link="checkout">Checkout</NavItem>
+            <NavItem link="/">Shopping</NavItem>
+            <NavItem link="/account">Account</NavItem>
         </ul>
     )
 }
