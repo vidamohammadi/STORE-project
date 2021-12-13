@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import Layout from './components/Layout/Layout'
 import Shopping from './containers/Shopping/Shopping';
 import Checkout from './containers/Checkout/Checkout';
-
+import Account from './containers/Account/Account';
 class App extends Component {
   render() {
     return (
@@ -11,7 +11,7 @@ class App extends Component {
         <Layout>
           <Switch>
             <Route path="/checkout" component={Checkout} />
-            <Route path="/account" render={() => <h1>this is account!</h1>} />
+            <Route path="/account" component={Account}/>
             <Route path="/" exact component={Shopping} />
           </Switch>
         </Layout>
